@@ -1,5 +1,3 @@
-
-
 $.getJSON(
 
 	// hack to work around Chrome's dislike of cross origin requests
@@ -8,12 +6,13 @@ $.getJSON(
 
 ).done(quizjson => {
 
-	console.log(quizjson.quizzes)
+	// console.log(quizjson.quizzes)
 
 	// build arrays to track the session
 	let scores = [] // track the user's score on each quiz
 	let attempts = [] // track number of questions attempted on each quiz
-	let currentQuiz;
+	let currentQuizIndex;
+	let currentQuizNumber; // buildMenu sets this to equal currentQuizIndex+1
 	function buildSession(){
 		let index = 0
 		$.each(quizjson.quizzes, each => {
@@ -24,53 +23,57 @@ $.getJSON(
 	}
 	buildSession()
 
-	// build the main menu
+	// display the main menu
 	function buildMenu(){
 		$( '#playarea' ).empty();
 		$( '.score' ).empty();
 		for (let n=0; n<quizjson.quizzes.length; n++) {
 			$('#playarea').append('<button id="quiz'+(n+1)+'">Quiz '+(n+1)+'</button>');
 			$('#quiz'+(n+1)).click(function() {
-				currentQuiz = n+1;
+				currentQuizIndex = n;
+				currentQuizNumber = n+1;
 				buildQuestion();
 			});
 		};
 	};
 	buildMenu();
 
+	// display a question and the corresponding answers
 	function buildQuestion() {
 
-		if ( (attempts[currentQuiz-1]) < (quizjson.quizzes[currentQuiz-1].questions.length) ) {
+		if ( (attempts[currentQuizIndex]) < (quizjson.quizzes[currentQuizIndex].questions.length) ) {
 
 			$( 'h1' ).empty();
-			$( 'h1' ).append('Quiz '+(currentQuiz));
-			$( '.score' ).text('Score: '+scores[currentQuiz-1]);
+			$( 'h1' ).append('Quiz '+(currentQuizNumber));
+			$( '.score' ).text('Score: '+scores[currentQuizIndex]);
 			$( '#playarea' ).empty();
-			$( '#playarea' ).append( '<h2>'+quizjson.quizzes[currentQuiz-1].title+'</h2>' );
-			$( '#playarea' ).append( '<h2>Question '+((attempts[currentQuiz-1])+1)+': '+quizjson.quizzes[currentQuiz-1].questions[(attempts[currentQuiz-1])].question+'</h2>' );
+			$( '#playarea' ).append( '<h2>'+quizjson.quizzes[currentQuizIndex].title+'</h2>' );
+			$( '#playarea' ).append( '<h2>Question '+((attempts[currentQuizIndex])+1)+': '+quizjson.quizzes[currentQuizIndex].questions[(attempts[currentQuizIndex])].question+'</h2>' );
 			
 			let answerIndex = 0;
-			$.each( quizjson.quizzes[currentQuiz-1].questions[(attempts[currentQuiz-1])].answers, each => {
-				$( '#playarea' ).append('<button class="clickable '+quizjson.quizzes[currentQuiz-1].questions[(attempts[currentQuiz-1])].answers[answerIndex].value+'">'+quizjson.quizzes[currentQuiz-1].questions[(attempts[currentQuiz-1])].answers[answerIndex].content+'</button>');
+			$.each( quizjson.quizzes[currentQuizIndex].questions[(attempts[currentQuizIndex])].answers, each => {
+				let answerBoolean = quizjson.quizzes[currentQuizIndex].questions[(attempts[currentQuizIndex])].answers[answerIndex].value;
+				let answerContent = quizjson.quizzes[currentQuizIndex].questions[(attempts[currentQuizIndex])].answers[answerIndex].content;
+				$( '#playarea' ).append('<button class="clickable '+answerBoolean+'">'+answerContent+'</button>');
 				answerIndex = answerIndex+1;
 			})
 
 			$('.true').click(function(){
 				if ($(this).hasClass('clickable')) {
-					scores[currentQuiz-1] = scores[currentQuiz-1]+1;
-					$( '.score' ).text('Score: '+scores[currentQuiz-1]);
+					scores[currentQuizIndex] = scores[currentQuizIndex]+1;
+					$( '.score' ).text('Score: '+scores[currentQuizIndex]);
 				}
 			})
 
 			$('.false').click(function(){
 				if ($(this).hasClass('clickable')) {
-					$( '.score' ).text('Score: '+scores[currentQuiz-1]);
+					$( '.score' ).text('Score: '+scores[currentQuizIndex]);
 				}
 			})
 
 			$('button').click(function() {
 				if ($(this).hasClass('clickable')) {
-					attempts[currentQuiz-1] = attempts[currentQuiz-1]+1;
+					attempts[currentQuizIndex] = attempts[currentQuizIndex]+1;
 					$(this).addClass('selected');
 					$('button').removeClass('clickable');
 					$('button').addClass('revealed');
@@ -85,34 +88,19 @@ $.getJSON(
 	};
 
 	function buildReportCard() {
-		if ( (scores[currentQuiz-1]) < ( (quizjson.quizzes[currentQuiz-1].questions.length)/2 )) {
+		if ( (scores[currentQuizIndex]) < ( (quizjson.quizzes[currentQuizIndex].questions.length)/2 )) {
 			$( '#playarea' ).empty();
 			$( '#playarea' ).append( '<h2>Fail!</h2>' );
 		} else {
 			$( '#playarea' ).empty();
 			$( '#playarea' ).append( '<h2>Pass!</h2>' );
 		}
-		scores[currentQuiz-1] = 0;
-		attempts[currentQuiz-1] = 0;
+		scores[currentQuizIndex] = 0;
+		attempts[currentQuizIndex] = 0;
 
 		setTimeout(buildMenu, 2000);
 
 	};
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }).fail(() => {
 	
@@ -125,4 +113,3 @@ $.getJSON(
 }).always(() => {
 
 });
-		
