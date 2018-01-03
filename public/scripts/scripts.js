@@ -1,8 +1,6 @@
 $.getJSON(
 
-	// hack to work around Chrome's dislike of cross origin requests
-	'https://raw.githubusercontent.com/redacademy/adp-entrance/master/src/quiz.json?token=Abg1ef9fFuozu_gYnqATP7JFWc1-ASlSks5aTURtwA%3D%3D',
-	// 'src/quiz.json',
+	'/src/quiz.json',
 
 ).done(quizjson => {
 

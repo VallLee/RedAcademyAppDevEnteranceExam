@@ -1,13 +1,16 @@
 # App Developer Entrance Project
 
-Create a client-side quiz app based on the provided requirements, data and views.
+CA client-side quiz app based on the provided requirements, data and views.
 
+## Installation / Setup
 
-## Requirements
+This project uses Express, and HTTP framework for Node.
 
-- clone this repo as a starter
-- use only HTML/CSS/JS
-- use any frameworks or libraries of your choice (ex: JQuery, React, Bootstrap)
+You'll need Node.js. Then, to install the necessary node packages:
+`npm install`
+
+To start a localhost server:
+`node quiz`
 
 ## Quiz Data
 
@@ -64,13 +67,6 @@ When the user has finished answering all three questions:
 
 - display the final score
 - show a "pass" message if more than 50% of the answers were correct, show a "fail" message otherwise
-
-## Upon Project Completion
-
-- push your finished app to Github
-- provide your username and repo to an instructor
-
-Good luck!
 
 
  
