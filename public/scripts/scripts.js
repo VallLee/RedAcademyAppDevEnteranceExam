@@ -23,6 +23,8 @@ $.getJSON(
 
 	// display the main menu
 	function buildMenu(){
+		$( 'h1' ).empty();
+		$( 'h1' ).append('Start');
 		$( '#playarea' ).empty();
 		$( '.score' ).empty();
 		for (let n=0; n<quizjson.quizzes.length; n++) {
