@@ -24,7 +24,8 @@ $.getJSON(
 	// display the main menu
 	function buildMenu(){
 		$( 'h1' ).empty();
-		$( 'h1' ).append('Start');
+		$( 'h1' ).text('Start');
+		$( '.subtitle' ).empty();
 		$( '#playarea' ).empty();
 		$( '.score' ).empty();
 		for (let n=0; n<quizjson.quizzes.length; n++) {
@@ -47,8 +48,8 @@ $.getJSON(
 			$( 'h1' ).append('Quiz '+(currentQuizNumber));
 			$( '.score' ).text('Score: '+scores[currentQuizIndex]);
 			$( '#playarea' ).empty();
-			$( '#playarea' ).append( '<h2>'+quizjson.quizzes[currentQuizIndex].title+'</h2>' );
-			$( '#playarea' ).append( '<h2>Question '+((attempts[currentQuizIndex])+1)+': '+quizjson.quizzes[currentQuizIndex].questions[(attempts[currentQuizIndex])].question+'</h2>' );
+			$( '.subtitle' ).text( quizjson.quizzes[currentQuizIndex].title );
+			$( '#playarea' ).append( '<h2 class="question">Question '+((attempts[currentQuizIndex])+1)+': '+quizjson.quizzes[currentQuizIndex].questions[(attempts[currentQuizIndex])].question+'</h2>' );
 			
 			let answerIndex = 0;
 			$.each( quizjson.quizzes[currentQuizIndex].questions[(attempts[currentQuizIndex])].answers, each => {
