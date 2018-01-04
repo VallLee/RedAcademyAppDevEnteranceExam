@@ -2,6 +2,10 @@
 
 CA client-side quiz app based on the provided requirements, data and views.
 
+## Screenshot (animated .gif)
+
+![Screenshots](./screenshot.gif)
+
 ## Installation / Setup
 
 This project uses Express, and HTTP framework for Node.
@@ -41,38 +45,3 @@ For every question there is one correct answer (with a value of `true`) and thre
 ## Functionality
 
 All data displayed is pulled from the JSON in such a way that the that addational asnwers, questions, or even entire quizzes could be added to the JSON without needing to modify any scripts.
-
-## Views
-
-Feel free to be creative and style your views. As a bare minimum, please create the following three views:
-
-##### 01 - Welcome Screen
-
-![01 - Welcome View](./diagrams/quiz-01.png)
-
-The view presented when the user starts the app.
-
-- load either quiz 1 or quiz 2 on click
-
-##### 02 - Quiz View
-
-![02 - Quiz View](./diagrams/quiz-02.png)
-
-While the user is selecting their answers:
-
-- display all 3 questions with possible answers
-- provide feedback when a user clicks on an answer. Consider styling correct or wrong answers with green or red button colors
-- show the next question after a time delay of 2 seconds
-- track the number of correct answers in the top right corner
-
-##### 03 - Completion View
-
-![03 - Completion View](./diagrams/quiz-03.png)
-
-When the user has finished answering all three questions:
-
-- display the final score
-- show a "pass" message if more than 50% of the answers were correct, show a "fail" message otherwise
-
-
- 
