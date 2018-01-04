@@ -12,9 +12,11 @@ You'll need Node.js. Then, to install the necessary node packages:
 To start a localhost server:
 `node quiz`
 
+To stop the localhost server, use Ctrl C
+
 ## Quiz Data
 
-Quiz data can be found in [src/quiz.json](./src/quiz.json). This content will be loaded when a user starts a quiz.
+Quiz data can be found in [public/src/quiz.json](.public/src/quiz.json). This content is loaded when a user starts a quiz.
 
 For every question there is one correct answer (with a value of `true`) and three incorrect answers with a value of `false`. The `content` field contains a possible answer.
 
@@ -35,6 +37,10 @@ For every question there is one correct answer (with a value of `true`) and thre
   }]
 }
 ```
+
+## Functionality
+
+All data displayed is pulled from the JSON in such a way that the that addational asnwers, questions, or even entire quizzes could be added to the JSON without needing to modify any scripts.
 
 ## Views
 
