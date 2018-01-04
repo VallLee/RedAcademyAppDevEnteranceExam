@@ -52,9 +52,24 @@ table {
 /* Styles for adp-entrance
 */
 
-body {
-	font-family: sans-serif;
+body, * {
+	font-family: system-ui, sans-serif;
 	font-weight: 200;
+}
+
+body {
+	margin: 2rem;
+}
+
+section {
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	width: 400px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .playarea {
@@ -77,35 +92,21 @@ h1 {
 }
 
 h2 {
-	font-size: 1.5rem;
+	font-size: 1.75rem;
 }
 
-.question {
+h3 {
+	font-size: 1.5rem;
 	margin-bottom: 1rem;
+	text-align: center;
 }
 
 :focus {
 	outline: none;
 }
 
-section {
-	height: 100vh;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-
-	width: 400px;
-	margin-left: auto;
-	margin-right: auto;
-
-}
-
-
-
 .score {
 	align-self: flex-end;
-	
 }
 
 button {
@@ -133,6 +134,10 @@ button {
 
 .revealed.true {
 	border-color: #6f6;
+	color: #6f6;
+}
+
+.win {
 	color: #6f6;
 }
 
