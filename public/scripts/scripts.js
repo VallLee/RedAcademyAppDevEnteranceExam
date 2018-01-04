@@ -39,19 +39,24 @@ $.getJSON(
 	};
 	buildMenu();
 
+	function buildScoreboard() {
+		$( '.score' ).text('Score: '+scores[currentQuizIndex]+'/'+(quizjson.quizzes[currentQuizIndex].questions.length));
+	};
+
 	// display a question and the corresponding answers
 	function buildQuestion() {
 
 		if ( (attempts[currentQuizIndex]) < (quizjson.quizzes[currentQuizIndex].questions.length) ) {
+
 			let answerIndex = 0;
 			let currentQuestionContent = quizjson.quizzes[currentQuizIndex].questions[(attempts[currentQuizIndex])].question;
 			$( 'h1' ).empty();
 			$( 'h1' ).append('Quiz '+(currentQuizNumber));
-			$( '.score' ).text('Score: '+scores[currentQuizIndex]);
+			buildScoreboard();
 			$( '#playarea' ).empty();
 			$( '.subtitle' ).text( quizjson.quizzes[currentQuizIndex].title );
-			$( '#playarea' ).append( '<h2 class="question">Question '+((attempts[currentQuizIndex])+1)+': '+currentQuestionContent+'</h2>' );
-			
+			$( '#playarea' ).append( '<h2>Question '+((attempts[currentQuizIndex])+1)+'</h2>' );
+			$( '#playarea' ).append( '<h3>'+currentQuestionContent+'</h3>' );
 			
 			$.each( quizjson.quizzes[currentQuizIndex].questions[(attempts[currentQuizIndex])].answers, each => {
 				let answerBoolean = quizjson.quizzes[currentQuizIndex].questions[(attempts[currentQuizIndex])].answers[answerIndex].value;
@@ -60,20 +65,20 @@ $.getJSON(
 				answerIndex = answerIndex+1;
 			})
 
-			$('.true').click(function(){
+			$('.true').click(function(){ // handle a click on the correct answer
 				if ($(this).hasClass('clickable')) {
 					scores[currentQuizIndex] = scores[currentQuizIndex]+1;
-					$( '.score' ).text('Score: '+scores[currentQuizIndex]);
+					buildScoreboard();
 				}
 			})
 
-			$('.false').click(function(){
+			$('.false').click(function(){ // handle a click on an incorrect answer
 				if ($(this).hasClass('clickable')) {
-					$( '.score' ).text('Score: '+scores[currentQuizIndex]);
+					buildScoreboard();
 				}
 			})
 
-			$('button').click(function() {
+			$('button').click(function() { // needs to happen on any click, regardless if it's the correct answer ot not
 				if ($(this).hasClass('clickable')) {
 					attempts[currentQuizIndex] = attempts[currentQuizIndex]+1;
 					$(this).addClass('selected');
@@ -83,7 +88,7 @@ $.getJSON(
 				}
 			});
 
-		} else {
+		} else { // go to report card after the last question
 			buildReportCard();
 		}
 
