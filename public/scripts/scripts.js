@@ -43,15 +43,16 @@ $.getJSON(
 	function buildQuestion() {
 
 		if ( (attempts[currentQuizIndex]) < (quizjson.quizzes[currentQuizIndex].questions.length) ) {
-
+			let answerIndex = 0;
+			let currentQuestionContent = quizjson.quizzes[currentQuizIndex].questions[(attempts[currentQuizIndex])].question;
 			$( 'h1' ).empty();
 			$( 'h1' ).append('Quiz '+(currentQuizNumber));
 			$( '.score' ).text('Score: '+scores[currentQuizIndex]);
 			$( '#playarea' ).empty();
 			$( '.subtitle' ).text( quizjson.quizzes[currentQuizIndex].title );
-			$( '#playarea' ).append( '<h2 class="question">Question '+((attempts[currentQuizIndex])+1)+': '+quizjson.quizzes[currentQuizIndex].questions[(attempts[currentQuizIndex])].question+'</h2>' );
+			$( '#playarea' ).append( '<h2 class="question">Question '+((attempts[currentQuizIndex])+1)+': '+currentQuestionContent+'</h2>' );
 			
-			let answerIndex = 0;
+			
 			$.each( quizjson.quizzes[currentQuizIndex].questions[(attempts[currentQuizIndex])].answers, each => {
 				let answerBoolean = quizjson.quizzes[currentQuizIndex].questions[(attempts[currentQuizIndex])].answers[answerIndex].value;
 				let answerContent = quizjson.quizzes[currentQuizIndex].questions[(attempts[currentQuizIndex])].answers[answerIndex].content;
