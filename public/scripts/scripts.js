@@ -39,8 +39,12 @@ $.getJSON(
 	};
 	buildMenu();
 
+	// display the score
 	function buildScoreboard() {
 		$( '.score' ).text('Score: '+scores[currentQuizIndex]+'/'+(quizjson.quizzes[currentQuizIndex].questions.length));
+		if ( scores[currentQuizIndex] > (quizjson.quizzes[currentQuizIndex].questions.length)/2 ) {
+			$( '.score' ).addClass('win')
+		}
 	};
 
 	// display a question and the corresponding answers
@@ -100,7 +104,7 @@ $.getJSON(
 			$( '#playarea' ).append( '<h2>Fail!</h2>' );
 		} else {
 			$( '#playarea' ).empty();
-			$( '#playarea' ).append( '<h2>Pass!</h2>' );
+			$( '#playarea' ).append( '<h2 class="win">Pass!</h2>' );
 		}
 		scores[currentQuizIndex] = 0;
 		attempts[currentQuizIndex] = 0;
