@@ -4,7 +4,6 @@ var app = express();
 
 // Define the port to run on
 app.set('port', 3000);
-
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Listen for requests
