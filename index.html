@@ -1,17 +1,26 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<script src="https://unpkg.com/lodash@4.16.6"></script>
-		<link rel="icon" type="image/x-icon" href="pngfavicon.ico"/>
-		<title>Quiz</title>
-	</head>
-	<body>
-		<div class="quiz-wrapper">
-			<h1 style="color:greenyellow;font-size:85px;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">Quiz!</h1>
-			<div id="quiz"></div>
-			
-		</div>
-		<script src="./src/index.js"></script>
-	</body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script type="text/javascript" src="./src/quiz.json"></script>
+  <title>Quiz</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="quiz-container">
+  <h1 id ="question" class="header-main">Start</h1>
+  <!-- <h2 id="score" class="score">Score: 0</h2> -->
+
+  <section id="quiz-zone">
+    <div id="quiz-button-container">
+      
+    </div>
+    <div id="answer-button-container" class="answer-button-container">
+    <a id="quiz-one" class="button">Quiz One</a>
+    <a id="quiz-two" class="button">Quiz Two</a>
+    </div>
+  </section>
+</main>
+  <script src="./build/main.bundle.js"></script>
+</body>
 </html>
