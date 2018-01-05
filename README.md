@@ -65,9 +65,10 @@ When the user has finished answering all three questions:
 - display the final score
 - show a "pass" message if more than 50% of the answers were correct, show a "fail" message otherwise
 
-## Upon Project Completion
 
-- push your finished app to Github
-- provide your username and repo to an instructor
+## install instructions
 
-Good luck!
+- run npm install
+## references
+
+http://www.fullstacktraining.com/articles/how-to-serve-static-files-with-express
