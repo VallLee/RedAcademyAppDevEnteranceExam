@@ -2,8 +2,8 @@ import Quiz from './Quiz';
 
 
 export default class QuizApp {
-  constructor(parentElementID) {
-    this.getQuizJSON('../src/quiz.json');
+  constructor(parentElementID, path) {
+    this.getQuizJSON(path);
     this.element = document.getElementById(parentElementID);
     this.quizObjects = [];
   }

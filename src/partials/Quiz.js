@@ -23,7 +23,7 @@ export default class Quiz {
   quizInit(element){
     
     element.innerHTML = `<div class="quiz-title">${this.title}</div>
-    <div class="score">Score: <span id="correct-answers">${this.score}</span>/${this.total}</div>
+    <div id='s' class="score">Score: <span id="correct-answers">${this.score}</span>/${this.total}</div>
     <div id="q"></div>`;
     
     this.questionElement = document.getElementById('q');
@@ -72,6 +72,7 @@ export default class Quiz {
     } else {
       this.questionElement.innerHTML = `<div class="fail">Fail</div>`;
     }
+    document.getElementById('s').setAttribute('class', 'score end');
     this.questionElement.insertAdjacentHTML('beforeend', `<button id="reset">Reset</button>`);
     document.getElementById('reset').addEventListener('click', () => {
       this.resetQuiz();
