@@ -1,34 +1,43 @@
-// import quiz from 'Quiz';
+import Quiz from './Quiz';
 
 
 export default class QuizApp {
   constructor(parentElementID) {
-    this.quizzes = this.getQuizJSON('src/quiz.json');
-    this.element = document.getElementById(this.parentElementID)
+    this.getQuizJSON('../src/quiz.json');
+    this.element = document.getElementById(parentElementID);
+    this.quizObjects = [];
   }
 
   init() {
+    //check for valid json
     if (!this.quizzes) {
       this.element.innerHTML = `<div>Something went wrong. Please try again.</div>`;
       return;
     }
-    console.log(this.quizzes);
-
+    //init quiz objects one time only
+    if (!this.quizObjects.length) {
+      this.quizzes.quizzes.forEach((value) => {
+        this.quizObjects.push(new Quiz(value, this));
+      });
+    }
+    //draw quizBoxes
+    this.element.innerHTML = `<div class="start">Start</div>`;
+    this.quizObjects.forEach((quiz) => {
+      quiz.drawTitle(this.element);
+    });
+  
   }
 
 
   getQuizJSON(path) {
     fetch(path)
     .then((resp) => resp.json())
-    .then(function(r){
-      if(r.ok) {
-        return r;
-      }
-      throw new Error('Network response was not ok.');
+    .then((r) => {
+      this.quizzes = r;
     })
+    .then(() => {this.init();})
     .catch(function(err){
       console.log(err);
-      return null;
     });
   }
 }
