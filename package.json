@@ -1,40 +1,23 @@
 {
   "name": "adp-entrance",
   "version": "1.0.0",
-  "description": "Quiz 5000!",
+  "description": "Create a client-side quiz app based on the provided requirements, data and views.",
   "main": "index.js",
+  "dependencies": {
+    "express": "^4.16.2"
+  },
+  "devDependencies": {},
   "scripts": {
-    "babel": "babel --presets es2015 js/main.js -o build/main.bundle.js",
-    "start": "webpack-dev-server",
-    "webpack": "webpack"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/redacademy/adp-entrance.git"
   },
-  "keywords": [],
   "author": "Nate",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/redacademy/adp-entrance/issues"
   },
-  "homepage": "https://github.com/redacademy/adp-entrance#readme",
-  "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-eslint": "^7.2.3",
-    "babel-loader": "^7.0.0",
-    "babel-preset-env": "^1.4.0",
-    "babel-preset-es2015": "^6.24.1",
-    "css-loader": "0.23.1",
-    "eslint": "^3.11.1",
-    "eslint-loader": "1.4.1",
-    "file-loader": "^0.9.0",
-    "open-browser-webpack-plugin": "0.0.2",
-    "style-loader": "^0.13.1",
-    "webpack": "^2.7.0",
-    "webpack-dev-server": "^2.4.5"
-  },
-  "dependencies": {
-    "jquery": "^3.2.1"
-  }
+  "homepage": "https://github.com/redacademy/adp-entrance#readme"
 }
