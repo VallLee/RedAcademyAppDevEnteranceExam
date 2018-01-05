@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "babel": "babel --presets es2015 js/main.js -o build/main.bundle.js",
-    "start": "http-server",
+    "start": "webpack-dev-server",
     "webpack": "webpack"
   },
   "repository": {
@@ -13,7 +13,7 @@
     "url": "git+https://github.com/redacademy/adp-entrance.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Nate",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/redacademy/adp-entrance/issues"
