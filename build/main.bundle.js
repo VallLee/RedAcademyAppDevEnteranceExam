@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -71,21 +71,22 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
-
 // import 'bootstrap';
 
-function component() {
+// var mydata = JSON.parse(data);
+// alert(mydata[0].name);
+// alert(mydata[0].age);
+// alert(mydata[1].name);
+// alert(mydata[1].age);
 
-  var element = document.createElement('div');
 
-  // Lodash, currently included via a script, is required for this line to work
-  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
 
-  return element;
-}
+__webpack_require__(0);
+(function webpackMissingModule() { throw new Error("Cannot find module \"/main/Desktop/NateADP/adp-entrance/build\""); }());
 
-document.body.appendChild(component());
 
 /***/ })
 /******/ ]);
