@@ -1,6 +1,5 @@
 
-var header = document.getElementsByTagName("h4")[0];
-header.innerHTML = "JavaScript FTW!";
+
 
 $.getJSON('/js/quiz.json',).done(quizjson => {
 
@@ -11,10 +10,12 @@ $.getJSON('/js/quiz.json',).done(quizjson => {
 
       let title = data.quizzes[1].title;
       let question = data.quizzes[1].questions[0].question;
+      let answer = data.quizzes[1].questions[0].answers[2].content;
 
         
-            $("div").append(title);
+            $("h4").append(title);
             $("div").append(question);
+            $("div").append(answer);
 
 
         });
