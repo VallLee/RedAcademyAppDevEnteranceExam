@@ -1,0 +1,105 @@
+body{
+	background-image: url('background.jpg');
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	}
+.black
+{
+	color:#000;
+}
+
+.left
+{
+	float: left;
+	display: inline-block;
+	padding:1em;
+	width:20%;
+}
+
+.content{
+	width:100%;
+}
+
+.header
+{
+	background-color: #FFA69E;
+	padding: 1em 1em;
+	margin-bottom: 1em;
+}
+
+.header h1
+{
+	color:#000;
+}
+
+.nav
+{
+	background-color: #FFA69E;
+	height:4em;
+	padding: 1em 1em;
+	margin-bottom: 1em;
+}
+
+.col1,.col2,.col3
+{
+	float: left;
+	display: inline-block;
+	color:#000;
+	margin-bottom: 2em;
+	margin-left: 3%;
+	width: 30%;
+}
+
+.Quiz
+{
+	width:20em;
+	height: 7em;
+	background-color: #FFF;
+}
+
+.quizbg
+{
+	background-color: #FFF;
+}
+
+.opacity
+{
+	background-color: #FFF;
+	opacity: .02;
+	width: 30%;
+}
+.footer
+{
+	clear: both;
+	padding: 1em 1em;
+	background-color: #FFA69E;
+	position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height:3em;
+    text-align: center;
+}
+.footer ul 
+{
+	top: 0;
+}
+a:link {
+
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+    color:#555;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:active {
+    text-decoration: underline;
+}
+
+
